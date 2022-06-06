@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Asteroïdes classés par la NASA</title>
+</head>
+<body>
+    <h1>Astéroïdes classés par la NASA</h1>
+    <form>
+        <fieldset>
+            <legend>Astéroïdes</legend>
+            <label for="asteroide">Choisis un astéroïde</label>
+            <select name="asteroide" id="asteroide">
+                <option value="voirAsteroide">Voir astéroïde</option>
+            </select>
+            <div class="form-group barreRecherche">
+                <label for="recherche" class="form-label mt-4">Rechercher</label>
+                <input type="text" class="form-control" id="recherche" onkeyup="chercherAsteroide()" placeholder="Rechercher un asteroïde">
+            </div>
+            <input type="submit" name="submit" value="Afficher les informations" class="bouton">
+        </fieldset>
+    </form>
+    <ul class="nav nav-tabs sliderBoot">
+        <li class="nav-item">
+            <a class="nav-link active lienSlider" data-bs-toggle="tab" href="#infos">Informations générales</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link lienSlider" data-bs-toggle="tab" href="#dates">Informations passages proches</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active show" id="infos">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" id="nomAsteroide"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nom complet</td>
+                        <td id="nomAsteroideComplet"></td>
+                    </tr>
+                    <tr>
+                        <td>Magnitude absolue</td>
+                        <td id="magnitudeAbsolue"></td>
+                    </tr>
+                    <tr>
+                        <td>Diamètre estimé</td>
+                        <td id="diametreEstime">
+                            <p id="diametreEstimeMin"></p>
+                            <p id="diametreEstimeMax"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Trajectoire (hasardeuse ou non)</td>
+                        <td id="trajectoire"></td>
+                    </tr>
+                    <tr>
+                        <td>Catalogué Sentry</td>
+                        <td id="sentry"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="dates">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="4" id="nomAsteroide2"></th>
+                    </tr>
+                    <tr>
+                        <th>Dates</th>
+                        <th>Distance Terre</th>
+                        <th>Vélocité</th>
+                        <th>Orbite autour de</th>
+                    </tr>
+                </thead>
+                <tbody class="infos2">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+body{
+    background: url('../img/Terre.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    font-size: 30px;
+    color: #fff;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    margin-top: 50px;
+    margin-bottom: 75px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+/* Formulaire : */
+form{
+    width: 625px;
+    margin: 60px auto 60px auto;
+    background: url('../img/Espace-bleu.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    border: 0.5px solid #fff;
+    padding: 5px 10px 2px 10px;
+}
+form fieldset{
+    height: 75px;
+    border: 0.5px solid rgb(200, 200, 200);
+    border: none;
+}
+form fieldset legend{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    color: #fff;
+    text-align: center;
+}
+form fieldset label{
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5px;
+    color: #fff;
+}
+form fieldset select{
+    background: #fff;
+    border: 1.5px solid rgb(200, 200, 200);
+    padding: 10px 40px;
+    border-radius: 5px;
+    color: black;
+    font-family: "Segoe UI";
+    font-size: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+form fieldset option{
+    color: #1877f2;
+}
+input[type="submit"]{
+    background: #fff;
+    border: 1.5px solid rgb(200, 200, 200);
+    padding: 6px 17px;
+    border-radius: 5px;
+    color: black;
+    font-family: "Segoe UI";
+    font-size: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+input[type="submit"]:hover{
+    background: #42b72a;
+    border: none;
+}
+
+/* Tableau : */
+table, td, th{
+    background: #fff;
+    border: 0.5px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    height: 46px;
+    table-layout: fixed;
+    width: 1450px;
+    margin: auto;
+}
+
+th{
+    font-size: 18px;
+}
+
+td{
+    padding: 10px;
+}
+
+table{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-bottom: 110px;
+    margin-top: 20px;
+}
+
+.sliderBoot{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: none;
+}
+
+p{
+    margin: 10px 0;
+}
+
+.nav-tabs .nav-link {
+    background: silver;
+}
+
+a:link{
+    text-decoration: none;
+    color: black;
+}
+
+/* Barre de recherche */
+.barreRecherche{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
