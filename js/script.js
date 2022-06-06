@@ -1,19 +1,23 @@
 let asteroid = [];
+// Création d'un tableau vide qui va par la suite contenir les résultats de la requête 
 var select = document.querySelector('select');
 
 const URL = 'https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=ABcELdggKuECdSgLEkq7ZBLqIMCySovNCvvNooKR';
 fetch(URL).then( response => { 
+// fetch() est une méthode qui procure un moyen facile et logique de récupérer des ressources à travers le réseau de manière asynchrone.
     return response.json(); 
     // on précise que l'on souhaite une réponse de type JSON
 }).then( data => {
     asteroid = data;
-    console.log(asteroid);
+    // On attribue les données au tableau
+    // console.log(asteroid); (vérification)
     chargerMenu(asteroid);
     afficherInformationsAsteroides(asteroid);
     afficherInformationsAsteroides2(asteroid);
 });
 
 function chargerMenu(parametre){
+// Fonction qui va nous permettre de rajouter le nom de tous les astéroïdes dans le select sous forme de <option>, on obtient donc notre liste déroulante
     for (i= 0; i < parametre['near_earth_objects'].length; i++){
             var listeOption = document.createElement('option');
             listeOption.setAttribute("value", i);
@@ -24,6 +28,8 @@ function chargerMenu(parametre){
 }
 
 function $_GET(param) {
+// Fonction qui va nous permettre de récupérer un élément (param) dans l'url (équivalent du $_GET de php)
+// Fonction trouvée sur internet : https://www.creativejuiz.fr/blog/javascript/recuperer-parametres-get-url-javascript
     var vars = {};
     window.location.href.replace( location.hash, '' ).replace( 
         /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
@@ -38,7 +44,8 @@ function $_GET(param) {
 }
 
 function afficherInformationsAsteroides(parametre2){
-
+// Fonction qui va nous permettre d'afficher les informations d'un astéroïde, en récupérant les éléments du HTML et en y injectant les valeurs, que l'on récupère dans des variables
+// Ce sont les informations du premier bloc, (informations générales) qui seront affichés
     var asteroidID = $_GET("asteroide");
     let asteroidNom = parametre2['near_earth_objects'][asteroidID].name_limited;
     let asteroidNomComplet = parametre2['near_earth_objects'][asteroidID].name;
@@ -60,13 +67,15 @@ function afficherInformationsAsteroides(parametre2){
 }
 
 function swappDate(date) {
-
+// Fonction qui permet d'afficher la date dans "l'ordre" français
     var dateOld = date.split(" ");
     return dateOld[0].split("-").reverse().join("-") + " " + dateOld[1];
 
 }
 
 function afficherInformationsAsteroides2(parametre3){
+// Fonction qui va nous permettre d'afficher les informations d'un astéroïde, en récupérant les éléments du HTML et en y injectant les valeurs, que l'on récupère dans des variables
+// Ce sont les informations du deuxième bloc, (informations techniques) qui seront affichés
 
     var asteroidID2 = $_GET("asteroide");
     for(j=0; j<parametre3['near_earth_objects'][asteroidID2].close_approach_data.length; j++){
@@ -99,7 +108,9 @@ function afficherInformationsAsteroides2(parametre3){
 // }
 
 function chercherAsteroide() {
-    
+// Fonction qui va nous permettre de rechercher un astéroïde via son nom (les éléments de la liste qui ne comporteront pas l'occurence tapée en barre de recherche ne seront plus visibles)
+// Après avoir tapé la recherche dans la barre, il faudra cliquer sur la liste pour afficher les éléments de la recherche
+
     let input = document.getElementById('recherche').value 
     input = input.toLowerCase();
     // deroulerMenu();
