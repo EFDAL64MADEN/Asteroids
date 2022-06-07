@@ -67,10 +67,32 @@ function afficherInformationsAsteroides(parametre2){
 }
 
 function swappDate(date) {
-// Fonction qui permet d'afficher la date dans "l'ordre" français
+// Fonction qui permet d'afficher la date en français
     var dateOld = date.split(" ");
-    return dateOld[0].split("-").reverse().join("-") + " " + dateOld[1];
+    var dateOld2 = dateOld[0].split("-").reverse();
 
+    let moisTableau = {
+        "Jan" : "janvier",
+        "Feb" : "fevrier",
+        "Mar" : "mars",
+        "Apr" : "avril",
+        "May" : "mai",
+        "Jun" : "juin",
+        "Jul" : "juillet",
+        "Aug" : "août",
+        "Sep" : "septembre",
+        "Oct" : "octobre",
+        "Nov" : "novembre",
+        "Dec" : "decembre"
+    };
+    for (var key in moisTableau){
+        if (key == dateOld2[1]){
+            let nouvelleDate = date.replace(key, moisTableau[key]);
+            let dateVraie = nouvelleDate.split(" ");
+            let dateVraie2 = dateVraie[0].split("-").reverse().join(" ");
+            return dateVraie2 + " à " + dateVraie[1];
+        }
+    }
 }
 
 function afficherInformationsAsteroides2(parametre3){
